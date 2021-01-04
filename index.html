@@ -12,13 +12,13 @@
     />
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
+<body class="bg-dark">
     <div class="wrapper">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
             <a class="navbar-brand" href="index.html">UFO Sightings</a>
           </nav>
           <div class="jumbotron">
-            <h1>The Truth Is Out There</h1>
+            <h1 class="display-4">The Truth is Out There</h1>
           </div>
           <div class="container-fluid">
             <div class="row">
@@ -37,30 +37,62 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-3">
-                <form>
-                    <p>Filter Search</p>
-                  </form>
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                        <label for="date">Enter Date</label>
-                        <input type="text" placeholder="1/10/2010" id="datetime" />
-                    </li>
-                    <li class="list-group-item">
-                        <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                    </li>
-                </ul>
-              </div>
+                <aside class="filters">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Filter Search</div>
+                      <div class="panel-body">
+                        <form id= "ufo-form" onSubmit="return false;">
+                          <div class="form-group">
+                            <ul class="list-group bg-dark" id="filters">
+                              <li class="filter list-group-item bg-dark">
+                                <label for="date">Enter a Date</label>
+                                <input class="form-control" id="datetime" type="text" placeholder="1/1/2010">
+                              </li>
+                              <li class="filter list-group-item bg-dark">
+                                <label for="date">Enter a City</label>
+                                <input class="form-control" id="city" type="text" placeholder="Anchorage">
+                              </li>
+                              <li class="filter list-group-item bg-dark">
+                                <label for="date">Enter a State</label>
+                                <input class="form-control" id="state" type="text" placeholder="AK">
+                              </li>
+                              <li class="filter list-group-item bg-dark">
+                                <label for="date">Enter a Country</label>
+                                <input class="form-control" id="country" type="text" placeholder="US">
+                              </li>
+                              <li class="filter list-group-item bg-dark">
+                                <label for="date">Enter a Shape</label>
+                                <input class="form-control" id="shape" type="text" placeholder="circle">
+                              </li>
+                            </ul>
+                          </div>
+                          <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                          <button id="reset-btn" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-repeat"></span>
+                          </button>
+                          <button class="btn btn-default dropdown-toggle pull-right" id="download-menu" type="button" data-toggle="dropdown">Download
+                            <span class="caret"></span>
+                          </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li role="presentation"><a id="download-csv" role="menuitem" tabindex="-1">CSV</a></li>
+                              <li role="presentation"><a id="download-json" role="menuitem" tabindex="-1">JSON</a></li>
+                            </ul>
+                        </form>
+                      </div>
+                    </div>
+                  </aside>
+                </div>
               <div class="col-md-9">
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Country</th>
-                        <th>Shape</th>
-                        <th>Duration</th>
-                        <th>Comments</th>
+                      <th>Date</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Country</th>
+                      <th>Shape</th>
+                      <th>Duration</th>
+                      <th>Comments</th>
                     </tr>
                   </thead>
                   <tbody></tbody>
@@ -70,5 +102,11 @@
           </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/app.js"></script>
 </body>
 </html>
